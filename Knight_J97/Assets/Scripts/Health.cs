@@ -7,10 +7,16 @@ public class Health : MonoBehaviour
     [SerializeField] bool isAI;
     [SerializeField] int health = 100;
     [SerializeField] int score = 50;
+    [SerializeField] int healAmount = 30;
+    [SerializeField] float healCooldown = 60f;
+    [SerializeField] GameObject healEffectPrefab;
+
+
     Animator animator;
     AudioPlayer audioPlayer;
     bool isVulnerable = true;
     [HideInInspector] public bool isDead = false;
+    private bool canHeal = true;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
     static int MAX_HEALTH = 100;
@@ -27,6 +33,46 @@ public class Health : MonoBehaviour
         scoreKeeper = FindAnyObjectByType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
         dropChance = Random.Range(1, 101);
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H) && canHeal)
+        {
+            TryHeal();
+        }
+    }
+
+    void TryHeal()
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("nPlayer Idling")) return;
+        ActivateHealSkill();
+        Debug.Log("Current State: " + animator.GetCurrentAnimatorStateInfo(0).IsName("nPlayer Idling"));
+    }
+
+    void ActivateHealSkill()
+    {
+        if (health < MAX_HEALTH)
+        {
+            health = Mathf.Min(health + healAmount, MAX_HEALTH);
+            animator.SetTrigger("Heal");
+            audioPlayer.PlayHealClip();
+
+            if (healEffectPrefab != null)
+            {
+                Instantiate(healEffectPrefab, transform.position, Quaternion.identity);
+            }
+
+            StartCoroutine(HealCooldown());
+        }
+    }
+
+    IEnumerator HealCooldown()
+    {
+        canHeal = false;
+        yield return new WaitForSeconds(healCooldown);
+        canHeal = true;
     }
 
     public void PlayerTakeDamage(int damage){
@@ -88,12 +134,7 @@ public class Health : MonoBehaviour
     }
 
     public void Heal(int value){
-        if(health >= MAX_HEALTH){
-            this.health = MAX_HEALTH;
-        }
-        else{
-            health += value;
-        }
+        health = Mathf.Min(health + value, MAX_HEALTH);
     }
 
     public int GetHealth(){
