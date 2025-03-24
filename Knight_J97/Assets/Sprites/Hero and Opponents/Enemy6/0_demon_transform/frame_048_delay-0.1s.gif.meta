@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 3a5e3740dff267345bb94822e19520df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1554220409751409582
+    second: frame_048_delay-0.1s_0
+  - first:
+      213: 7689060468888886217
+    second: frame_048_delay-0.1s_1
+  - first:
+      213: -3735545436961371453
+    second: frame_048_delay-0.1s_2
+  - first:
+      213: 568249020474509184
+    second: frame_048_delay-0.1s_3
+  - first:
+      213: 997673782695703773
+    second: frame_048_delay-0.1s_4
+  - first:
+      213: 9018298823863719768
+    second: frame_048_delay-0.1s_5
+  - first:
+      213: 887773760609959212
+    second: frame_048_delay-0.1s_6
+  - first:
+      213: 2408972831009189925
+    second: frame_048_delay-0.1s_7
+  - first:
+      213: -8307870604327738760
+    second: frame_048_delay-0.1s_8
+  - first:
+      213: -5204194810290633208
+    second: frame_048_delay-0.1s_9
+  - first:
+      213: -309380882936417811
+    second: frame_048_delay-0.1s_10
+  - first:
+      213: 793734301568085089
+    second: frame_048_delay-0.1s_11
+  - first:
+      213: -5490747048991680782
+    second: frame_048_delay-0.1s_12
+  - first:
+      213: 4411897222617743322
+    second: frame_048_delay-0.1s_13
+  - first:
+      213: 132705538382841453
+    second: frame_048_delay-0.1s_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: frame_048_delay-0.1s_0
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 155
+        width: 230
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a41110f9e3f0f4cb3481cbe3c5c899
+      internalID: 1004270299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frame_048_delay-0.1s_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 0
+        width: 230
+        height: 155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0ffac968b6e7f4da4e7f099a5c792b
+      internalID: 555727098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0198de1a8afa76c4eb68027272bae00d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      frame_048_delay-0.1s_0: 1004270299
+      frame_048_delay-0.1s_1: 555727098
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

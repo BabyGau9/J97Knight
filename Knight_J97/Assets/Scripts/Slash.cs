@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +25,12 @@ public class Slash : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Enemy"){
             other.GetComponent<Health>().EnemyTakeDamage(slashDamage);
+            SlimeBoss slime = other.GetComponent<SlimeBoss>();
+            if (slime != null)
+            {
+                // Gọi hàm TakeDamage() để Slime chuyển state bị đánh
+                slime.TakeDamage();
+            }
         }
         Destroy(gameObject);
     }
