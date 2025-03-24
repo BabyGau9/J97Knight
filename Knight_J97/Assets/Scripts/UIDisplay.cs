@@ -58,5 +58,6 @@ public class UIDisplay : MonoBehaviour
         {
             scoreText.text = "Score: " + scoreKeeper.GetScore().ToString();
         }
+
     }
 }

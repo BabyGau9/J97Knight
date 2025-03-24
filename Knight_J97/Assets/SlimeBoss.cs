@@ -8,11 +8,10 @@ public class SlimeBoss : MonoBehaviour
     public void TakeDamage()
     {
         // Lấy StateMachineBehaviour "IdieSlime" từ Animator
-        IdieSlime idleSlimeSMB = animator.GetBehaviour<IdieSlime>();
+        TransformSlime idleSlimeSMB = animator.GetBehaviour<TransformSlime>();
         if (idleSlimeSMB != null)
         {
             // Gọi OnHit() để slime phản ứng
-            idleSlimeSMB.OnHit();
         }
         else
         {

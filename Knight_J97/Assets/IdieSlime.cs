@@ -1,28 +1,26 @@
 ﻿using UnityEngine;
 
-public class IdieSlime : StateMachineBehaviour
+public class TransformSlime : StateMachineBehaviour
 {
-    private Transform slimeTransform;
-    private Animator slimeAnimator;
-
-    // Khi vào state Idle
+    // Khi bắt đầu state “transform”
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        slimeTransform = animator.transform;
-        slimeAnimator = animator;
+        Debug.Log("Slime: Bắt đầu transform!");
+        // Bạn có thể viết code: tắt collider nhỏ, bật collider lớn, thay đổi scale, ...
+        // Ví dụ:
+        // var slime = animator.GetComponent<Slime>();
+        // if (slime != null) slime.DoSomethingWhenTransformStarts();
     }
 
-    // Hàm bị đánh
-    public void OnHit()
+    // Khi state “transform” kết thúc (animation xong)
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (slimeTransform == null || slimeAnimator == null) return;
+        Debug.Log("Slime: Kết thúc transform -> chuyển Idle.");
+        // Sau khi animation transform xong, ta gọi trigger “idle”:
+        animator.SetTrigger("Idle");
 
-        // Gọi trigger animation Hurt
-        slimeAnimator.SetTrigger("Hurt");
-
-        // Hoặc knockback slime
-        // slimeTransform.position += new Vector3(-1f, 0f, 0f);
-
-        Debug.Log("Slime bị đánh trong state Idle, vị trí: " + slimeTransform.position);
+        // Hoặc logic tùy ý (nếu cần):
+        // var slime = animator.GetComponent<Slime>();
+        // if (slime != null) slime.DoSomethingWhenTransformEnds();
     }
 }

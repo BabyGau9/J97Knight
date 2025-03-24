@@ -16,6 +16,6 @@ public class UIGameOver : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        scoreText.text = "You scored: " + scoreKeeper.GetScore().ToString();
+        scoreText.text = "YOUR SPIRITS: " + scoreKeeper.GetScore().ToString();
     }
 }
