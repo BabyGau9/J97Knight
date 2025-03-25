@@ -56,9 +56,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (!PauseMenu.isPaused)
         {
-            OnFireSkill();
+            moveInput = value.Get<Vector2>();
         }
     }
 

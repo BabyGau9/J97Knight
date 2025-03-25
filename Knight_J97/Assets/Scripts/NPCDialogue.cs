@@ -112,7 +112,7 @@ public class NPCDialogue : MonoBehaviour
 
 	private void CheckPoint()
 	{
-		if (scoreKeeper.GetScore() < 500)
+		if (scoreKeeper.GetScore() <= 100)
 		{
 			var animator = Player.GetComponent<Health>().GetComponent<Animator>();
 			animator.SetTrigger("Die");
