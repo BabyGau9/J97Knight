@@ -1191,7 +1191,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.686677, y: 5.577297, z: -10}
+  m_LocalPosition: {x: -4.31818, y: 5.5772967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'SPIRITS: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ccdf491bb63ae7444aa195eb05377b3f, type: 2}
   m_sharedMaterial: {fileID: 5194938311094104960, guid: ccdf491bb63ae7444aa195eb05377b3f, type: 2}
