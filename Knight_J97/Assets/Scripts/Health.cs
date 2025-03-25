@@ -129,7 +129,9 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             animator.SetTrigger("Die");
             GetComponent<PlayerMovement>().enabled = false;
-            levelManager.LoadGameOver();
+			PlayerPrefs.SetInt("FinalScore", scoreKeeper.GetScore());
+
+			levelManager.LoadGameOver();
         }
     }
 

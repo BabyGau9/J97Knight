@@ -1897,7 +1897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc3f3edf0745a40abb294d83f93fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 5634512572995896992}
   dialogueData: {fileID: 11400000, guid: 476feebcdf72d5842911ed0b508c3c87, type: 2}
   dialoguePanel: {fileID: 1632981415}
   dialogueText: {fileID: 100913696}
