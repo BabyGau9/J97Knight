@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int hazardDamage = 20;
     [SerializeField] GameObject slash;
     [SerializeField] Transform slashPoint;
+    [SerializeField] float fireSkillCooldown = 5f;
+    [SerializeField] GameObject fireballPrefab;
+    [SerializeField] Transform firePoint;
+    [SerializeField] float fireCooldown = 5f;
+
+    private bool canUseFireSkill = true;
     float nextAttackTime = 0f;
     AudioPlayer audioPlayer;
     const float groundCheckRadius = 0.2f;
@@ -41,12 +47,18 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
         GroundCheck();
         DieByHazard();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            OnFireSkill();
+        }
     }
 
     void OnMove(InputValue value)
     {
-        if(!PauseMenu.isPaused){
-            moveInput = value.Get<Vector2>();
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            OnFireSkill();
         }
     }
 
@@ -74,6 +86,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnFireSkill()
+    {
+        if (PauseMenu.isPaused || !canUseFireSkill) return;
+
+        Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
+
+        canUseFireSkill = false;
+        StartCoroutine(ResetFireSkillCooldown());
+    }
+
+    IEnumerator ResetFireSkillCooldown()
+    {
+        yield return new WaitForSeconds(fireCooldown);
+        canUseFireSkill = true;
+    }
     void OnDrawGizmosSelected() {
         if(attackPoint == null){
             return;
