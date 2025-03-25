@@ -2,9 +2,10 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
+  - MinotaurCheckPoint
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Hazards
   - Hearts
   - Slashes
-  - 
+  - Dialouge
   - 
   - 
   - 
@@ -72,3 +73,8 @@ TagManager:
   - name: Bushes
     uniqueID: 2377827259
     locked: 0
+  - name: Dialouge
+    uniqueID: 2695820155
+    locked: 0
+  m_RenderingLayers:
+  - Default
