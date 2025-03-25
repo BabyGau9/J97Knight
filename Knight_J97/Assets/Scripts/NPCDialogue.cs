@@ -118,6 +118,8 @@ public class NPCDialogue : MonoBehaviour
 			animator.SetTrigger("Die");
 			var movement = Player.GetComponent<PlayerMovement>();
 			movement.enabled = false;
+			PlayerPrefs.SetInt("FinalScore", scoreKeeper.GetScore());
+
 			levelManager.LoadGameOver();
 		}
 	}
