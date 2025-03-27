@@ -149,7 +149,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: da44d1640a4713d41b86b891540407d9, type: 3}
   m_Resource: {fileID: 8300000, guid: da44d1640a4713d41b86b891540407d9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.188
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 807984498}
-  playerHealth: {fileID: 2103626499}
+  playerHealth: {fileID: 625653552}
   scoreText: {fileID: 1112899876}
 --- !u!4 &458435224 stripped
 Transform:
@@ -1552,6 +1552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAI: 1
+  isFinalBoss: 1
   health: 1000
   score: 50
   healAmount: 30
@@ -1560,7 +1561,7 @@ MonoBehaviour:
   isDead: 0
   heart: {fileID: 3995658532851804612, guid: c4ac418cddcf69f42a2cbd3d69cfe3a7, type: 3}
   dropPoint: {fileID: 625653546}
-  isBoss: 0
+  isBoss: 1
   exitPortal: {fileID: 0}
   exitDropPoint: {fileID: 0}
 --- !u!1 &646335549
@@ -20758,17 +20759,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042680213}
   m_CullTransparentMesh: 1
---- !u!114 &2103626499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7706748087614656153, guid: e781c64525dbd3d49b83b6a2c3b35e4b, type: 3}
-  m_PrefabInstance: {fileID: 142437543}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7f66618783bb54aae6101efe2a9ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &786109582194196450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20785,6 +20775,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5634512572995896992}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: slimeFlameClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c46d1cf169a7e254fab7d4e2674aeee8, type: 3}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: slimeTransform
+      value: 
+      objectReference: {fileID: 8300000, guid: 9513b216ef4262a44aab549d99dcccd2, type: 3}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: slimeCleaveClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b860d379d1c2d24c8ddc73099585cfe, type: 3}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: slimeCleaveVolumn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 786109583633908251, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
       propertyPath: m_RootOrder
       value: 3

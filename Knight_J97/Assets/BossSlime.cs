@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossSlime : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class BossSlime : MonoBehaviour
     [Header("Transform Settings")]
     [SerializeField] private float transformRange = 1.5f; // Khi Player rất gần, kích hoạt Transform
     private bool hasTransformed = false;  // Chỉ transform 1 lần
-
+    AudioPlayer audioPlayer;
     [Header("Damage Settings")]
     [SerializeField] private float range = 0.5f;        // Tầm đánh (BoxCast)
     [SerializeField] private float colliderDistance = 0.5f;
@@ -32,7 +34,10 @@ public class BossSlime : MonoBehaviour
     private Animator animator;
     private bool facingRight = true;
     private Health playerHealth;
-
+    void Start()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,7 +55,7 @@ public class BossSlime : MonoBehaviour
     void Update()
     {
         if (player == null) return;
-
+      
         // Cập nhật bộ đếm thời gian cho attack
         attackTimer += Time.deltaTime;
 
@@ -85,14 +90,19 @@ public class BossSlime : MonoBehaviour
         }
 
         // 2. Random Attack: Khi đủ thời gian, Boss sẽ tung chiêu "Cleave" hoặc "Flame"
-        if (attackTimer >= nextAttackTime)
+        if (attackTimer >= nextAttackTime && hasTransformed)
         {
             int randomAttack = Random.Range(0, 2);
             if (randomAttack == 0)
+            {
                 animator.SetTrigger("Claeve");
+                audioPlayer.PlaySlimeCleave();
+            }
             else
+            {
                 animator.SetTrigger("Flame");
-
+                audioPlayer.PlaySlimeFlame();
+            }
             ResetAttackTime();
         }
 
@@ -102,11 +112,13 @@ public class BossSlime : MonoBehaviour
             animator.SetTrigger("Transform");
             hasTransformed = true;
             moveSpeed += 1f;
+            audioPlayer.PlayTransform();
         }
 
         // Debug thông tin (có thể tạm thời để kiểm tra)
-        Debug.Log("Attack Timer: " + attackTimer + " / Next Attack: " + nextAttackTime);
-        Debug.Log("Distance to Player: " + distToPlayer);
+      /*  Debug.Log("Attack Timer: " + attackTimer + " / Next Attack: " + nextAttackTime);
+        Debug.Log("Distance to Player: " + distToPlayer);*/
+       
     }
 
     // Hàm này được gọi bởi Animation Event trong chiêu Cleave/Flame để gây sát thương cho Player
@@ -117,7 +129,13 @@ public class BossSlime : MonoBehaviour
             playerHealth.PlayerTakeDamage(damage);
         }
     }
-
+    void Die()
+    {
+        // Tùy chọn: phát animation chết
+        // animator.SetTrigger("Die");
+        // Hoặc hủy ngay
+        Destroy(gameObject);
+    }
     bool PlayerInSight()
     {
         RaycastHit2D hit = Physics2D.BoxCast(
