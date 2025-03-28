@@ -115,6 +115,7 @@ public class Health : MonoBehaviour
 
     IEnumerator DieDelay(){
         if(health <= 0 && isAI){
+            Debug.Log($"dropChance: {dropChance}, isBoss: {isBoss}, isFinalBoss: {isFinalBoss}");
             yield return new WaitForSeconds(0.15f);
             if(dropChance >= 80 && !isBoss && !isFinalBoss)
             {
