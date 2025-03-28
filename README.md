@@ -30,6 +30,9 @@ Damage: 30
 Chương 2: Thung lũng tàn tích
 g người đá bị nguyền rủa.
 Nhiệm vụ: đánh bại skeleton có trang bị , thu thập các mảnh linh hồn và đánh bại boss rồng
+
+
+
 Thông số màn 2
 Quái skeleton 
 Số lượng: 17
