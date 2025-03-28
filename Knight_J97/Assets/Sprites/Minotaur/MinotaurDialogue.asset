@@ -15,8 +15,8 @@ MonoBehaviour:
   npcName: Minotaur
   npcPortrait: {fileID: 4723107735738678597, guid: 58500bab1a7f76148ac54e81b859f5b2, type: 3}
   dialogueLines:
-  - Hahaha, What a laughable effort!  Let me test your abilities, kid! Give me enough
-    100 spirits!!
+  - Hahaha, What a laughable effort!  Let me test your abilities, kid!. Give me 100
+    spirites and I will let you meet the devil king.
   autoProgressLines: 01
   autoProgressDelay: 1.5
   typingSpeed: 0.05

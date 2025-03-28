@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] bool isAI;
+    [SerializeField] bool isFinalBoss;
     [SerializeField] int health = 100;
     [SerializeField] int score = 50;
     [SerializeField] int healAmount = 30;
@@ -115,11 +116,18 @@ public class Health : MonoBehaviour
     IEnumerator DieDelay(){
         if(health <= 0 && isAI){
             yield return new WaitForSeconds(0.15f);
-            if(dropChance >= 80 && !isBoss){
+            if(dropChance >= 80 && !isBoss && !isFinalBoss)
+            {
                 Instantiate(heart, dropPoint.transform.position, Quaternion.identity);
             }
-            if(isBoss){
+            if(isBoss && !isFinalBoss)
+            {
                 Instantiate(exitPortal, exitDropPoint.transform.position, Quaternion.identity);
+            }
+            if(isBoss && isFinalBoss)
+            {
+                animator.SetTrigger("Death");
+                audioPlayer.PlaySlimeFlame();
             }
             Destroy(transform.parent.gameObject);
             scoreKeeper.ModifyScore(score);

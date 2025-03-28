@@ -31,13 +31,32 @@ public class AudioPlayer : MonoBehaviour
     [Header("Water Splash")]
     [SerializeField] AudioClip waterClip;
     [SerializeField] [Range(0f, 1f)] float waterVolume = 1f;
-
+    [Header("SlimeTransform")]
+    [SerializeField] AudioClip slimeTransform;
+    [SerializeField][Range(0f, 1f)] float slimeTransformVolume = 4f;
+    [Header("SlimeCleave")]
+    [SerializeField] AudioClip slimeCleaveClip;
+    [SerializeField][Range(0f, 1f)] float slimeCleaveVolumn = 4f;
+    [Header("SlimeFlame")]
+    [SerializeField] AudioClip slimeFlameClip;
+    [SerializeField][Range(0f, 1f)] float slimeFlameVolumn = 4f;
     static AudioPlayer instance;
 
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
     }
-
+    public void PlaySlimeFlame()
+    {
+        PlayClip(slimeFlameClip, slimeFlameVolumn);
+    }
+    public void PlaySlimeCleave()
+    {
+        PlayClip(slimeCleaveClip, slimeCleaveVolumn);
+    }
+    public void PlayTransform()
+    {
+        PlayClip(slimeTransform, slimeTransformVolume);
+    }
     public void PlayJumpClip(){
         PlayClip(jumpClip, jumpVolume);
     }

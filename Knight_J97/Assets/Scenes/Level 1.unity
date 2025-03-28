@@ -49423,6 +49423,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1905898790}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: coinClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b1821e6daebd764408da4ad9be099b78, type: 3}
+    - target: {fileID: 786109583633908250, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
+      propertyPath: healClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 491e38926cef77d44ab8f71c07856f9c, type: 3}
     - target: {fileID: 786109583633908251, guid: 0ea07724b3175764ebe6833c8dd063ff, type: 3}
       propertyPath: m_RootOrder
       value: 5
