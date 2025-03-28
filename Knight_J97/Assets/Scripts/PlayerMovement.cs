@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         DieByHazard();
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             OnFireSkill();
         }

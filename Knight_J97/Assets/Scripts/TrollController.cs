@@ -14,30 +14,24 @@ public class TrollController : MonoBehaviour
     Animator animator;
     EnemyPatrol enemyPatrol;
     Health playerHealth;
-    private float fixedY;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
-        animator.applyRootMotion = false;
-    }
-
-    void Start()
-    {
-        fixedY = transform.position.y; 
     }
     void Update()
     {
         cooldownTimer += Time.deltaTime;
-        if (PlayerInSight() && !playerHealth.isDead)
+        if (PlayerInSight() && playerHealth != null && !playerHealth.isDead)
         {
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
                 animator.SetTrigger("Attack");
                 audioPlayer.PlayAttackClip();
+                StartCoroutine(DelayedDamage());
             }
         }
 
@@ -46,28 +40,25 @@ public class TrollController : MonoBehaviour
             enemyPatrol.enabled = !PlayerInSight();
         }
     }
-
-    void OnAnimatorMove()
+    IEnumerator DelayedDamage()
     {
-        
-        Vector3 newPosition = transform.position;
-        newPosition.y = fixedY;
-        transform.position = newPosition;
+        yield return new WaitForSeconds(2f); 
+        DamagePlayer();
     }
-
     bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-        new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z)
-        , 0, Vector2.left, 0, LayerMask.GetMask("Player"));
+        RaycastHit2D hit = Physics2D.BoxCast(
+            boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+            0,
+            transform.right * -1, 
+            0,
+            LayerMask.GetMask("Player")
+        );
+
         if (hit.collider != null)
         {
             playerHealth = hit.transform.GetComponent<Health>();
-            Debug.Log("Phát hiện Player!");
-        }
-        else
-        {
-            Debug.Log("Không có Player trong tầm đánh!");
         }
         return hit.collider != null;
     }
@@ -81,14 +72,15 @@ public class TrollController : MonoBehaviour
 
     void DamagePlayer()
     {
-        if (PlayerInSight())
+        Debug.Log(" DamagePlayer() was called!");
+        if (playerHealth != null)
         {
-            Debug.Log("Yes!");
             playerHealth.PlayerTakeDamage(damage);
+            Debug.Log("Player were hit : " + damage);
         }
         else
         {
-            Debug.Log("No!");
+            Debug.LogWarning(" error");
         }
     }
 }
